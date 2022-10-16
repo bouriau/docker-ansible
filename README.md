@@ -16,7 +16,7 @@ Starting containers : ```docker-compose up -d```
 
 Enter Ansible container : ```docker exec -ti ansible bash``` 
 
-Enter Client container : ```docker exec -ti remote-host-one bash``` 
+Enter Client container : ```docker exec -ti node1 bash``` 
 
 ---
 
@@ -24,7 +24,7 @@ Enter Client container : ```docker exec -ti remote-host-one bash```
 Simply run an ADHOC command in Ansible container to check if it's working or not.
 
 ```console
-ansible host1 -i inventory/inventory.txt -m ping
+ansible host1 -i inventory/inventory.yaml -m ping
 ``` 
 
 

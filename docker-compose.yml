@@ -14,8 +14,8 @@ services:
     networks:
       - net
 
-  remote_host_one:
-    container_name: remote-host-one
+  node1:
+    container_name: node1
     image: remote-host-ssh
     hostname: node1
     env_file:
@@ -25,8 +25,8 @@ services:
     networks:
       - net
 
-  remote_host_two:
-    container_name: remote-host-two
+  node2:
+    container_name: node2
     image: remote-host-ssh
     hostname: node2
     env_file:
