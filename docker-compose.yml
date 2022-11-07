@@ -3,6 +3,7 @@ services:
   ansible:
     container_name: ansible
     image: ansible
+    hostname: ansible
     tty: true
     stdin_open: true
     build:
@@ -12,20 +13,26 @@ services:
       - ./ansible.cfg:/ansible.cfg
     networks:
       - net
-  
-  remote_host_one:
-    container_name: remote-host-one
+
+  node1:
+    container_name: node1
     image: remote-host-ssh
+    hostname: node1
+    env_file:
+      - .env
     build:
-      context: ./ssh-enabled-ubuntu
+      context: ./sshd-enabled-debian
     networks:
       - net
-  
-  remote_host_two:
-    container_name: remote-host-two
+
+  node2:
+    container_name: node2
     image: remote-host-ssh
+    hostname: node2
+    env_file:
+      - .env
     build:
-      context: ./ssh-enabled-ubuntu
+      context: ./sshd-enabled-debian
     networks:
       - net
 
